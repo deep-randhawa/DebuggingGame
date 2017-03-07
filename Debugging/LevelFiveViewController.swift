@@ -58,7 +58,7 @@ class LevelFiveViewController: GameLevelViewController, UITableViewDataSource, U
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as! MovieTableViewCell
-        let movie = self.movies[indexPath.row] as? [String:AnyObject]
+        let movie = self.movies[indexPath.row] as? [String: AnyObject]
         
         let posterUrl = URL(string: posterBaseUrl + (movie!["poster_path"] as! String))
         
@@ -67,6 +67,8 @@ class LevelFiveViewController: GameLevelViewController, UITableViewDataSource, U
         
         if let movieOverview = movie?["overview"] as? String {
             cell.overviewLabel.text = movieOverview
+        } else {
+            cell.overviewLabel.text = ""
         }
         
         return cell
