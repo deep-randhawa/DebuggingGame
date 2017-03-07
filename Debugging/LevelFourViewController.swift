@@ -40,6 +40,7 @@ class LevelFourViewController: GameLevelViewController, UITableViewDataSource, U
                     
                     if let movies = responseDictionary["movies"] as? [AnyObject] {
                         self.movies = movies
+                        tableView.reloadData()
                     }
             }
         } catch {
